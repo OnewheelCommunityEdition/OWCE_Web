@@ -34,6 +34,7 @@ namespace OWCE_Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseStaticFiles();
             }
             else
             {
@@ -43,7 +44,6 @@ namespace OWCE_Web
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
             app.UseRouting();
 

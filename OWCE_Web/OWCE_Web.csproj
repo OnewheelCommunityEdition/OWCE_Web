@@ -5,6 +5,11 @@
     <AWSProjectType>Lambda</AWSProjectType>
     <PublishReadyToRunShowWarnings>true</PublishReadyToRunShowWarnings>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'ReleaseDev' ">
+    <DefineConstants>DEV</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="5.0.0" />
   </ItemGroup>
