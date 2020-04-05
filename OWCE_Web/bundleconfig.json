@@ -1,8 +1,8 @@
 [
   {
-    "outputFileName": "wwwroot/css/site.min.css",
+    "outputFileName": "wwwroot/apple-touch-icon-2.png",
     "inputFiles": [
-      "wwwroot/css/site.css"
+      "wwwroot/apple-touch-icon.png"
     ]
   },
   {
