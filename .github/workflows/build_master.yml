@@ -1,4 +1,4 @@
-name: .NET Core
+name: Build <aster
 
 on:
   push:
@@ -28,11 +28,5 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
         
-    #- name: Install dependencies
-    #  run: dotnet restore
     - name: Build
-      run: cd OWCE_Web && dotnet lambda deploy-function --function-name OWCE_Web --msbuild-parameters "/p:PublishReadyToRun=true --self-contained false --runtime linux-x64"
-
-      #run: dotnet build --configuration Release --no-restore
-    #- name: Test
-    #  run: dotnet test --no-restore --verbosity normal
+      run: cd OWCE_Web && dotnet lambda deploy-function --configuration Release --function-name OWCE_Web --msbuild-parameters "/p:PublishReadyToRun=true --self-contained false --runtime linux-x64"
