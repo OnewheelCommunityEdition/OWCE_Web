@@ -5,9 +5,9 @@
     <AWSProjectType>Lambda</AWSProjectType>
     <PublishReadyToRunShowWarnings>true</PublishReadyToRunShowWarnings>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'ReleaseDev' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ReleaseDev|Any CPU' ">
     <DefineConstants>DEV</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
