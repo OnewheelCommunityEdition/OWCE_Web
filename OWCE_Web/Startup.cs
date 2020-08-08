@@ -25,7 +25,26 @@ namespace OWCE_Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           services.AddRazorPages();
+           services.AddRazorPages(options =>
+           {
+               var hwfwPages = new string[]
+               {
+                   "hw",
+                   "fw",
+                   "hwfw",
+                   "fwhw",
+                   "firmware",
+                   "hardware",
+                   "hardwarefirmware",
+                   "firmwarehardware",
+               };
+               foreach (var hwfwPage in hwfwPages)
+               {
+                   options.Conventions.AddPageRoute("/KnownHardwareFirmware", hwfwPage);
+               }
+
+               //options.Conventions.AddRoute
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
