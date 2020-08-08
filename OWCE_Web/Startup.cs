@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -67,7 +68,11 @@ namespace OWCE_Web
             app.UseRouting();
 
             app.UseAuthorization();
-
+#if !DEBUG
+            var rewriteOptions = new RewriteOptions()
+                .AddRedirect("(^$|^Index$)", "https://www.facebook.com/owceapp", 302);
+            app.UseRewriter(rewriteOptions);
+#endif
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
