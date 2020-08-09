@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +26,26 @@ namespace OWCE_Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           services.AddRazorPages();
+           services.AddRazorPages(options =>
+           {
+               var hwfwPages = new string[]
+               {
+                   "hw",
+                   "fw",
+                   "hwfw",
+                   "fwhw",
+                   "firmware",
+                   "hardware",
+                   "hardwarefirmware",
+                   "firmwarehardware",
+               };
+               foreach (var hwfwPage in hwfwPages)
+               {
+                   options.Conventions.AddPageRoute("/KnownHardwareFirmware", hwfwPage);
+               }
+
+               //options.Conventions.AddRoute
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,7 +68,11 @@ namespace OWCE_Web
             app.UseRouting();
 
             app.UseAuthorization();
-
+#if !DEBUG
+            var rewriteOptions = new RewriteOptions()
+                .AddRedirect("(^$|^Index$)", "https://www.facebook.com/owceapp", 302);
+            app.UseRewriter(rewriteOptions);
+#endif
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
