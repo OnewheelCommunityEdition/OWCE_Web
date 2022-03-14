@@ -44,6 +44,7 @@ namespace OWCE_Web
                    options.Conventions.AddPageRoute("/KnownHardwareFirmware", hwfwPage);
                }
 
+               options.Conventions.AddPageRoute("/OnewheelAppFirmwareFAQ", "faq/app_update");
                //options.Conventions.AddRoute
            });
         }
