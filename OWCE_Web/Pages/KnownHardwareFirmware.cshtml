@@ -1,35 +1,86 @@
 ﻿@page
+@model OWCE_Web.Pages.KnownHardwareFirmwareModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Known hardware/firmware list";
+    List<Data.Board> Boards = new List<Data.Board>()
+{
+        Data.Board.GetGT(),
+        Data.Board.GetPintX(),
+        Data.Board.GetPint(),
+        Data.Board.GetXR(),
+        Data.Board.GetPlus(),
+        Data.Board.GetV1(),
+    };
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Known Onewheel Firmware/Hardware</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:url" content="https://@HttpContext.Request.Host/fwhw">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Known Onewheel Firmware/Hardware">
-    <meta property="og:image" content="@CDN.Path/img/owce_hwfw.png">
-    <meta property="og:description" content="List of all known Onewheel firmware and hardware combinations.">
 
-    <style type="text/css">
-        body {
-            margin: 0px;
-        }
+NOTE: See the FAQ at the bottom of this page to understand what this all means.
 
-        iframe {
-            display: block; /* iframes are inline by default */
-            background: #000;
-            border: none; /* Reset default border */
-            height: 100vh; /* Viewport-relative units */
-            width: 100vw;
-        }
-    </style>
-</head>
-<body>
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ2HA2O1Aw2C_O7UQq7UViI6zo76ZHE__UI6KTj6hDD4Nu2OSYhe9U_wmz_h4_05bB0_j3XobpFgNhw/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-</body>
-</html>
+@foreach (var board in Boards)
+{
+    <div class="container">
+        <h2>@board.Name</h2>
+        <p>@board.Description</p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        @foreach (var hardware in board.KnownHardware)
+                        {
+                            <th>@hardware</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var firmware in board.KnownFirmware)
+                    {
+                        <tr>
+                            <th>@firmware</th>
+                            @foreach (var hardware in board.KnownHardware)
+                            {
+                                var firmwareStatus = board.KnownHardwareFirmware.ContainsKey((hardware, firmware)) ? board.KnownHardwareFirmware[(hardware, firmware)] : Data.FirmwareStatus.Unknown;
+                                var tdClass = firmwareStatus switch
+                                {
+                                    Data.FirmwareStatus.Suspected => "danger",
+                                    Data.FirmwareStatus.ConfirmedNotPubliclyAvailable => "info",
+                                    Data.FirmwareStatus.Confirmed => "success",
+                                    _ => "warning",
+                                };
+                                var firmwareStatusText = firmwareStatus switch
+                                {
+                                    Data.FirmwareStatus.Suspected => "Suspected",
+                                    Data.FirmwareStatus.ConfirmedNotPubliclyAvailable => "Private",
+                                    Data.FirmwareStatus.Confirmed => "Confirmed",
+                                    _ => "",
+                                };
+                                <td class="@tdClass">@firmwareStatusText</td>
+                            }
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<div class="container">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>
+        What does confirmed, private and suspected mean?
+    </h3>
+    These are the different states of availability.
+    <ul>
+        <li><b>Confirmed</b> - Firmware is/was available for you to download in the app and update your board.</li>
+        <li><b>Private</b> - Firmware is not and never was availalbe to update via the app. The only way to get this firmware is to get your board directly from Future Motion or to have your board go in for repair and maybe it comes back with this firmware.</li>
+        <li><b>Suspected</b> - Firmware has not been seen in the wild, but there should be no reason there are boards out there with this firmware.</li>
+    </ul>
+
+    <h3>
+        I don't want to update my firmware, not updating my app will protect me from that right?
+    </h3>
+    No. But you can read more about that <a href="faq/unofficial_app_update">here</a>.
+
+</div>

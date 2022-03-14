@@ -1,0 +1,74 @@
+﻿@page
+@model OWCE_Web.Pages.UnofficialAppUpdateFAQ
+@{
+}
+
+<h2>Unofficial Onewheel App/Firmware Update FAQ x</h2>
+<p>
+    There has been a lot of talk lately about not updating the Onewheel app to avoid firmware updates. This FAQ can hopefully clear up some of the misinformation getting around.
+</p>
+
+<h3>What is an app update?</h3>
+<p>
+    This is the version of the app on your phone getting new features, stability improvements, and bug fixes.
+</p>
+
+<h3>What is a firmware update?</h3>
+<p>
+    A firmware update is an update that is installed from the Onewheel app to your board to fix its bugs, improve stability, and add new features.
+</p>
+
+<h3>How do I update the firmware on my board?</h3>
+<p>
+    Just open your Onewheel app and connect to your board. This checks the Onewheel servers to see if an update is available to you. If one is, the app will then prompt you to update your firmware. It won’t update without your knowledge. (tehnically it can, but that would be a dumb move by FM which can result in a lot of broken boards, so it’s very unlikely)
+</p>
+
+<h3>How do I know if I have the latest firmware?</h3>
+<p>
+    Just open your Onewheel app and connect to your board. If you don’t get a prompt there is no update. You can check the community maintained list of known firmware over at our <a href="https://owce.app/hwfw">known hardware/firmware</a> list.
+</p>
+
+<h3>That above link says I should have a firmware update but I don’t see it when I open the app?</h3>
+<p>
+    As of a Onewheel app update in November 2020 (iOS 2.4.9, Android 2.4.6) the app stopped prompting for firmware updates. The app appears to request firmware updates through a new method which has not gone live yet, at least as of the time of writing on the 17th June 2021.
+</p>
+
+<h3>What’s all this noise about disabling updates?</h3>
+<p>
+    There is a current trend of people wanting to opt-out of updates because while firmware updates may bring you new features (eg. custom shaping was a new feature added after release), they have the ability to prevent things like aftermarket battery mods and 3rd party apps from working with your board.
+</p>
+
+<h3>Ok, so I’ll just disable app updates and I’m good right?</h3>
+<p>
+    Woah, hold on there mate.<br />
+    I just said that firmware updates are downloaded from the internet. So technically it doesn't matter if you have an app from this week or from this time last year. Once Future Motion hits the button in their system your app will prompt you for a firmware update.<br />
+    There are some caveats to this though. The example I gave before was how custom shaping was added. In order to get custom shaping you need both an app update (for the new in-app buttons) AND a firmware update (so the board knows how to handle these new commands).<br />
+    On the flip side, there have been some firmware updates out there which didn’t need any app updates as it was purley changes to the way the board operates.
+</p>
+
+<h3>But if I don’t use the Onewheel app I can’t ride my board, right?</h3>
+<p>
+    Nope. You can ride your Onewheel without your phone. You do lose some of the neat things like ride tracking and badges, but it can be done.<br />
+    <br />
+    If you want to see your battery level without the app you can either:<br />
+    <ul>
+        <li>Pint, Pint X, GT: Look at the LED bar at your front footpad.</li>
+        <li>V1, Plus, XR: Look at the pulsating light around your power button. If it’s on most of the time you have most of your battery. If it’s only on briefly then your battery is near empty.</li>
+    </ul>
+    <br />
+    If you want to change ride mode without the app you can either:<br />
+    <ul>
+        <li>Pint, Pint X, GT: Do nothing, FM removed the ability to change ride mode.</li>
+        <li>V1, Plus, XR: Flip the board on the side and change the ride mode by tapping the footpads. You can see a full video guide <a href="https://www.youtube.com/watch?v=Ihx59I62j9w" target="_blank">here</a> (video by Drew Baumann).</li>
+    </ul>
+</p>
+<h3>How do we know if the next firmware update will be tied to an app update?</h3>
+<p>
+    We don’t. However the new firmware check system would allow specific firmware to only be downloaded for specific app versions.
+</p>
+
+
+<h3>So if I don’t care for battery mods or 3rd party apps should always update to the latest app and firmware updates?</h3>
+<p>
+    Maybe. You do you. This is a guide to help you decide on what you want to do.
+</p>
