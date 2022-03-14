@@ -1,37 +1,10 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <!--- Basic Page Needs  -->
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - OWCE</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Mobile Specific Meta  -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- CSS -->
-    <link rel="stylesheet" href="@CDN.Path/css/bootstrap.min.css">
-    <link rel="stylesheet" href="@CDN.Path/css/jquery-ui.css">
-    <link rel="stylesheet" href="@CDN.Path/css/font-awesome.min.css">
-    <link rel="stylesheet" href="@CDN.Path/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="@CDN.Path/css/slicknav.min.css">
-    <link rel="stylesheet" href="@CDN.Path/css/magnificpopup.css">
-    <link rel="stylesheet" href="@CDN.Path/css/jquery.mb.YTPlayer.min.css">
-    <link rel="stylesheet" href="@CDN.Path/css/typography.css">
-    <link rel="stylesheet" href="@CDN.Path/css/style.css">
-    <link rel="stylesheet" href="@CDN.Path/css/responsive.css">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="@CDN.Path//apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="@CDN.Path//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="@CDN.Path//favicon-16x16.png">
 
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    <!--
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -42,113 +15,37 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-        -->
 </head>
-
 <body>
-    <!-- preloader area start -->
-    <div id="preloader">
-        <div class="spinner"></div>
+    <div class="container body-content">
+        @RenderBody()
+        <!--<hr />
+    <footer>
+        <p>&copy; 2022 - OWCE</p>
+    </footer>-->
     </div>
-    <!-- preloader area end -->
-    <!-- header area start -->
-    <header id="header">
-        <div class="header-area">
-            <div class="container">
-                <div class="row">
-                    <div class="menu-area">
-                        <div class="col-md-3 col-sm-12 col-xs-12">
-                            <div class="logo">
-                                <a href="/"><img src="@CDN.Path/img/icon/logo.png" alt="Onewheel Community Edition logo"></a>
-                            </div>
-                        </div>
-                        <div class="col-md-9 hidden-xs hidden-sm">
-                            <div class="main-menu">
-                                <nav class="nav-menu">
-                                    @Html.Raw(ViewData["NavLinks"])
-                                </nav>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xs-12 visible-sm visible-xs">
-                            <div class="mobile_menu"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
 
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
 
- <!--
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a asp-page="/Index" class="navbar-brand">OWCE_Web</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a asp-page="/Index">Home</a></li>
-                        <li><a asp-page="/Help">Help</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-     -->
-            @RenderBody()
-
-        <!-- footer area start -->
-        <footer>
-            <div class="footer-area">
-                <div class="container">
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <!--<script>document.write(new Date().getFullYear());</script>--> 2020 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
-            </div>
-        </footer>
-        <!-- footer area end -->
-        <!-- Scripts -->
-        <script src="@CDN.Path/js/jquery-3.2.0.min.js"></script>
-        <script src="@CDN.Path/js/jquery-ui.js"></script>
-        <script src="@CDN.Path/js/bootstrap.min.js"></script>
-        <script src="@CDN.Path/js/jquery.slicknav.min.js"></script>
-        <script src="@CDN.Path/js/owl.carousel.min.js"></script>
-        <script src="@CDN.Path/js/magnific-popup.min.js"></script>
-        <script src="@CDN.Path/js/counterup.js"></script>
-        <script src="@CDN.Path/js/jquery.waypoints.min.js"></script>
-        <script src="@CDN.Path/js/jquery.mb.YTPlayer.min.js"></script>
-        <script src="@CDN.Path/js/theme.js"></script>
-
-        <!--
-        <environment include="Development">
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/js/site.js" asp-append-version="true"></script>
-        </environment>
-        <environment exclude="Development">
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"
-                    crossorigin="anonymous"
-                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk"></script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                    crossorigin="anonymous"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
-        </environment>
-            -->
-
-        @RenderSection("Scripts", required: false)
-    </body>
+    @RenderSection("Scripts", required: false)
+</body>
 </html>

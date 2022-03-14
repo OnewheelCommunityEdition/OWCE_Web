@@ -7,10 +7,10 @@
     "OWCE_Web": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "http://localhost:64991",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:5000"
+      }
     }
   }
 }
