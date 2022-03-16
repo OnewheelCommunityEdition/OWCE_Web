@@ -33,6 +33,8 @@ public class Startup
             }
 
             options.Conventions.AddPageRoute("/UnofficialAppUpdateFAQ", "faq/unofficial_app_update");
+            options.Conventions.AddPageRoute("/UnofficialActivatingFAQ", "faq/unofficial_activating");
+
         });
     }
 
