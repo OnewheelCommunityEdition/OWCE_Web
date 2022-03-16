@@ -27,5 +27,5 @@ jobs:
         aws-region: us-east-1
         
     - name: Build
-      run: cd OWCE_Web && dotnet lambda deploy-function --configuration ReleaseDev --function-name OWCE_WebDev --msbuild-parameters "/p:PublishReadyToRun=true --self-contained false --runtime linux-x64"
+      run: cd OWCE_Web && dotnet lambda deploy-function --configuration Release --function-name OWCE_WebDev --msbuild-parameters "/p:PublishReadyToRun=true --self-contained false --runtime linux-x64"
 
