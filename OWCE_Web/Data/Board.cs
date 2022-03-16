@@ -163,9 +163,11 @@ namespace OWCE_Web.Data
             board.KnownHardware.Add(6404);
             board.KnownFirmware.Add(6064);
             board.KnownFirmware.Add(6069);
+            board.KnownFirmware.Add(6070);
 
             board.KnownHardwareFirmware.Add((6404, 6064), FirmwareStatus.Confirmed);
             board.KnownHardwareFirmware.Add((6404, 6069), FirmwareStatus.ConfirmedNotPubliclyAvailable);
+            board.KnownHardwareFirmware.Add((6404, 6070), FirmwareStatus.ConfirmedNotPubliclyAvailable);
 
             return board;
         }
