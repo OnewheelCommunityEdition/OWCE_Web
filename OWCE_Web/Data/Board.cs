@@ -160,11 +160,13 @@ namespace OWCE_Web.Data
         {
             var board = new Board("GT", "Onewheel GT was announced at the same time as the Pint X on October 27th 2021, however it did not start shipping until March of 2022.");
 
+            board.KnownHardware.Add(6400);
             board.KnownHardware.Add(6404);
             board.KnownFirmware.Add(6064);
             board.KnownFirmware.Add(6069);
             board.KnownFirmware.Add(6070);
 
+            board.KnownHardwareFirmware.Add((6400, 6064), FirmwareStatus.Confirmed);
             board.KnownHardwareFirmware.Add((6404, 6064), FirmwareStatus.Confirmed);
             board.KnownHardwareFirmware.Add((6404, 6069), FirmwareStatus.ConfirmedNotPubliclyAvailable);
             board.KnownHardwareFirmware.Add((6404, 6070), FirmwareStatus.ConfirmedNotPubliclyAvailable);
