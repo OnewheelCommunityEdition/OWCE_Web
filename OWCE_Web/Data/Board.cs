@@ -168,6 +168,7 @@ namespace OWCE_Web.Data
             board.KnownFirmware.Add(6070);
             board.KnownFirmware.Add(6071);
             board.KnownFirmware.Add(6100);
+            board.KnownFirmware.Add(6109);
 
             board.KnownHardwareFirmware.Add((6400, 6064), FirmwareStatus.Confirmed);
             board.KnownHardwareFirmware.Add((6404, 6064), FirmwareStatus.Confirmed);
@@ -177,6 +178,9 @@ namespace OWCE_Web.Data
             board.KnownHardwareFirmware.Add((6400, 6100), FirmwareStatus.Confirmed);
             board.KnownHardwareFirmware.Add((6404, 6100), FirmwareStatus.Confirmed);
             board.KnownHardwareFirmware.Add((6407, 6100), FirmwareStatus.Confirmed);
+            board.KnownHardwareFirmware.Add((6400, 6109), FirmwareStatus.Suspected);
+            board.KnownHardwareFirmware.Add((6404, 6109), FirmwareStatus.Confirmed);
+            board.KnownHardwareFirmware.Add((6407, 6109), FirmwareStatus.Suspected);
 
             return board;
         }
