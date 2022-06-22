@@ -180,7 +180,7 @@ namespace OWCE_Web.Data
             board.KnownHardwareFirmware.Add((6407, 6100), FirmwareStatus.Confirmed);
             board.KnownHardwareFirmware.Add((6400, 6109), FirmwareStatus.Suspected);
             board.KnownHardwareFirmware.Add((6404, 6109), FirmwareStatus.Confirmed);
-            board.KnownHardwareFirmware.Add((6407, 6109), FirmwareStatus.Suspected);
+            board.KnownHardwareFirmware.Add((6407, 6109), FirmwareStatus.Confirmed);
 
             return board;
         }
