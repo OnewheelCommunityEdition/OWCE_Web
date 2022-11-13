@@ -10,6 +10,6 @@
   "configuration": "Release",
   "function-runtime": "dotnet6",
   "function-name": "OWCE_Web",
-  "function-memory-size": 128,
+  "function-memory-size": 1024,
   "function-timeout": 30
 }
