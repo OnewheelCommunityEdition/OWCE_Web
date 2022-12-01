@@ -61,7 +61,7 @@ public class Startup
         app.UseAuthorization();
 #if !DEBUG
             var rewriteOptions = new RewriteOptions()
-                .AddRedirect("(^$|^Index$)", "https://www.facebook.com/owceapp", 307);
+                .AddRedirect("(^$|^Index$)", "https://github.com/OnewheelCommunityEdition/OWCE_App", 307);
             app.UseRewriter(rewriteOptions);
 #endif
         app.UseEndpoints(endpoints =>
