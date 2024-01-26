@@ -148,10 +148,13 @@ namespace OWCE_Web.Data
             var board = new Board("Pint X", "Onewheel Pint X was announced October 27th 2021.");
 
             board.KnownHardware.Add(7314);
+            board.KnownHardware.Add(7326);
 
             board.KnownFirmware.Add(5076);
-
+            board.KnownFirmware.Add(5100);
+            
             board.KnownHardwareFirmware.Add((7314, 5076), FirmwareStatus.Confirmed);
+            board.KnownHardwareFirmware.Add((7326, 5100), FirmwareStatus.Confirmed);
             return board;
         }
 
